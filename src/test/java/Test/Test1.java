@@ -42,6 +42,7 @@ public class Test1 {
         }
     }
 
+    // Добавлена эта строка
     public int getA() {
         return a;
     }
