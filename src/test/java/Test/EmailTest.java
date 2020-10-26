@@ -17,14 +17,15 @@ public class EmailTest extends Base {
 
     @Test
     public void test(){
-        driver.get(url);
+        getDriver().get(url);
         AutorizationPage ap = new AutorizationPage(getDriver());
         Assert.assertTrue(ap.login(login, "xxxlll23"));
-          subj = LocalDateTime.now().toString();
-        Assert.assertTrue(ap.sendMassege(subj,text));
-        Assert.assertTrue(ap.checkMail(subj, text));
-            subj = LocalDateTime.now().toString();
+//          subj = LocalDateTime.now().toString();
+//        Assert.assertTrue(ap.sendMassege(subj,text));
+//        Assert.assertTrue(ap.checkMail(subj, text));
+        subj = LocalDateTime.now().toString();
         ap.changePodpis(newSign, login, subj);
+
 
     }
 

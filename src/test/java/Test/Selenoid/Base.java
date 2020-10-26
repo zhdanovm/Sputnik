@@ -18,6 +18,8 @@ public class Base {
     @BeforeTest
     public void beforeT() {
         ChromeOptions options = new ChromeOptions();
+        options.setBinary("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
+        options.addArguments("--start-maximized");
 
         DesiredCapabilities dc = DesiredCapabilities.chrome();
         dc.setCapability(ChromeOptions.CAPABILITY, options);
