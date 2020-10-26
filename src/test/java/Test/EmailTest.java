@@ -22,7 +22,7 @@ public class EmailTest extends Base {
         AutorizationPage ap = new AutorizationPage(getDriver());
         Assert.assertTrue(ap.login(login, "xxxlll23"));
         subj1 = LocalDateTime.now().toString();
-        Assert.assertTrue(ap.sendMassege(subj1,text));
+        ap.sendMassege(subj1,text);
         Assert.assertTrue(ap.checkMail(subj1, text));
         subj2 = LocalDateTime.now().toString();
         Assert.assertTrue(ap.changePodpis(newSign, login, subj2));
