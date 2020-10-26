@@ -13,7 +13,6 @@ public class Base {
 
     public Base(final WebDriver driver) {
         PageFactory.initElements(driver, this);
-
         this.driver = driver;
     }
 
@@ -68,4 +67,15 @@ public class Base {
 
     }
 
+    protected String getText(WebElement webElement) {
+        return webElement.getText();
+    }
+    
+    protected void sleep(int mls) {
+        try {
+            Thread.sleep(mls);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

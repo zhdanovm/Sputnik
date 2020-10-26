@@ -18,5 +18,11 @@
             <class name="Test.Test1310"/>
         </classes>
     </test>
+    <test name="EmailTest">
+        <classes>
+            <class name="Test.EmailTest">
+            </class>
+        </classes>
+    </test>
 
 </suite>

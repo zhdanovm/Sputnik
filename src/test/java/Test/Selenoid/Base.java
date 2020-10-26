@@ -7,28 +7,33 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
+import java.sql.Driver;
 import java.net.MalformedURLException;
+import java.net.URI;
 import java.net.URL;
 
 public class Base {
-    WebDriver driver;
-    protected String ggrUrl = "http://localhost:4445";
+    public WebDriver driver;
+    protected String ggrUrl = "http://192.168.1.92:4445";
 
     @BeforeTest
     public void beforeT() {
         ChromeOptions options = new ChromeOptions();
+        options.setBinary("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
 
-        DesiredCapabilities dc = DesiredCapabilities.chrome();
-        dc.setCapability(ChromeOptions.CAPABILITY, options);
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setBrowserName("chrome");
+        capabilities.setVersion("latest");
 
-        URL hub = null;
         try {
-            hub = new URL(ggrUrl + "/wd/hub");
+            driver = new RemoteWebDriver(
+                    URI.create ("http://192.168.1.92:4445/wd/hub").toURL(),
+                    capabilities
+            );
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
-        driver = new RemoteWebDriver(hub, dc);
+        driver.manage().window().maximize();
 
         System.out.println("Дейсивие перед тестом");
     }
