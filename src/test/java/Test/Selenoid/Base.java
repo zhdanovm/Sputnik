@@ -19,7 +19,6 @@ public class Base {
     public void beforeT() {
         ChromeOptions options = new ChromeOptions();
         options.setBinary("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe");
-        options.addArguments("--start-maximized");
 
         DesiredCapabilities dc = DesiredCapabilities.chrome();
         dc.setCapability(ChromeOptions.CAPABILITY, options);
@@ -31,6 +30,7 @@ public class Base {
             e.printStackTrace();
         }
         driver = new RemoteWebDriver(hub, dc);
+        driver.manage().window().maximize();
 
         System.out.println("Дейсивие перед тестом");
     }

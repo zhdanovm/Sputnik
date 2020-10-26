@@ -28,16 +28,24 @@ public class Base {
      * @return
      */
     protected Boolean waitVisibilityOfElement(final WebElement element) {
-// switchToFrame();
         WebDriverWait wait = new WebDriverWait(driver, driverWaitTime);
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
-// switchToDefaultFrame();
             return true;
         } catch (Exception e) {
             e.printStackTrace();
         }
-// switchToDefaultFrame();
+        return false;
+    }
+
+    protected Boolean waitNotVisibilityOfElement(final WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, driverWaitTime);
+        try {
+            wait.until(ExpectedConditions.invisibilityOf(element));
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return false;
     }
     /**
